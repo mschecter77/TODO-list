@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace todolist
@@ -30,6 +31,30 @@ namespace todolist
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message);
+                }
+                
+            }
+        }
+        public DataSet fillGrid() {             string sql = "SELECT * FROM TaskList";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    Console.WriteLine("Connection successful!");
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        return ds;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                    return null;
                 }
             }
         }

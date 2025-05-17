@@ -39,12 +39,17 @@
             label1 = new Label();
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
+            tabPage4 = new TabPage();
+            dataGridView1 = new DataGridView();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
             // 
+            tabControl1.Controls.Add(tabPage4);
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
@@ -149,6 +154,29 @@
             tabPage3.Text = "Update Task";
             tabPage3.UseVisualStyleBackColor = true;
             // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(dataGridView1);
+            tabPage4.Location = new Point(4, 29);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(792, 413);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "View Tasks";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(6, 0);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(790, 417);
+            dataGridView1.TabIndex = 0;
+            // 
             // Tabs
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -160,6 +188,8 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -176,5 +206,7 @@
         private Label label2;
         private Label label1;
         private TabPage tabPage3;
+        private TabPage tabPage4;
+        private DataGridView dataGridView1;
     }
 }

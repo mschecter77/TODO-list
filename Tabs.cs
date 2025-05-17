@@ -15,13 +15,26 @@ namespace todolist
         public Tabs()
         {
             InitializeComponent();
+            fillGrid();
+            
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             DB db = new DB();
             db.DBaddtask(txtBxTName.Text, txtBxTDescription.Text, dateTimePicker1.Value);
+            fillGrid();
             MessageBox.Show("Task submitted.");
+            
+        }
+        public void fillGrid()
+        {
+            DB db = new DB();
+            DataSet ds = db.fillGrid();
+            if (ds != null)
+            {
+                dataGridView1.DataSource = ds.Tables[0];
+            }
         }
     }
 }
