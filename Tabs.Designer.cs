@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             tabControl1 = new TabControl();
+            tabPage4 = new TabPage();
+            dataGridView1 = new DataGridView();
             tabPage1 = new TabPage();
             btnSubmit = new Button();
             dateTimePicker1 = new DateTimePicker();
@@ -38,13 +40,15 @@
             label2 = new Label();
             label1 = new Label();
             tabPage2 = new TabPage();
+            button1 = new Button();
+            label4 = new Label();
+            comBoxTaskName = new ComboBox();
             tabPage3 = new TabPage();
-            tabPage4 = new TabPage();
-            dataGridView1 = new DataGridView();
             tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
             tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -58,6 +62,29 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(800, 446);
             tabControl1.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(dataGridView1);
+            tabPage4.Location = new Point(4, 29);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(792, 413);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "View Tasks";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(6, 0);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(790, 417);
+            dataGridView1.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -136,6 +163,9 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(button1);
+            tabPage2.Controls.Add(label4);
+            tabPage2.Controls.Add(comBoxTaskName);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -143,6 +173,34 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Delete Task";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(98, 131);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 2;
+            button1.Text = "Delete";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(98, 30);
+            label4.Name = "label4";
+            label4.Size = new Size(159, 20);
+            label4.TabIndex = 1;
+            label4.Text = "Pick task to be deleted";
+            // 
+            // comBoxTaskName
+            // 
+            comBoxTaskName.AllowDrop = true;
+            comBoxTaskName.FormattingEnabled = true;
+            comBoxTaskName.Location = new Point(98, 65);
+            comBoxTaskName.Name = "comBoxTaskName";
+            comBoxTaskName.Size = new Size(151, 28);
+            comBoxTaskName.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -154,29 +212,6 @@
             tabPage3.Text = "Update Task";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
-            // 
-            tabPage4.Controls.Add(dataGridView1);
-            tabPage4.Location = new Point(4, 29);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(792, 413);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "View Tasks";
-            tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(6, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(790, 417);
-            dataGridView1.TabIndex = 0;
-            // 
             // Tabs
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -186,10 +221,12 @@
             Name = "Tabs";
             Text = "Form2";
             tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
             tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -208,5 +245,8 @@
         private TabPage tabPage3;
         private TabPage tabPage4;
         private DataGridView dataGridView1;
+        private Button button1;
+        private Label label4;
+        private ComboBox comBoxTaskName;
     }
 }

@@ -16,7 +16,8 @@ namespace todolist
         {
             InitializeComponent();
             fillGrid();
-            
+            popListBox();
+
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -24,8 +25,9 @@ namespace todolist
             DB db = new DB();
             db.DBaddtask(txtBxTName.Text, txtBxTDescription.Text, dateTimePicker1.Value);
             fillGrid();
+            popListBox();
             MessageBox.Show("Task submitted.");
-            
+
         }
         public void fillGrid()
         {
@@ -36,5 +38,25 @@ namespace todolist
                 dataGridView1.DataSource = ds.Tables[0];
             }
         }
+        private void popListBox()
+        {
+            comBoxTaskName.Items.Clear();
+            DB db = new DB();
+            string[] names = db.getTaskName();
+            foreach (string name in names)
+            {
+                comBoxTaskName.Items.Add(name);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+            db.DBdeletetask(comBoxTaskName.SelectedItem.ToString());
+            
+            fillGrid();
+            popListBox();
+        }
     }
+
 }

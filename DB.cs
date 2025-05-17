@@ -57,6 +57,69 @@ namespace todolist
                     return null;
                 }
             }
+       }
+        public void DBdeletetask(string name )
+        {
+            string sql = "DELETE FROM TaskList WHERE TaskName  = @name";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    Console.WriteLine("Connection successful!");
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@name", name);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        Console.WriteLine("Task deleted successfully! Rows affected: " + rowsAffected);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
         }
+        public string[] getTaskName()
+        {
+            string sql = "SELECT TaskName FROM TaskList";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    Console.WriteLine("Connection successful!");
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+
+                        
+                        if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                        {
+                            List<string> taskNames = new List<string>();
+                            foreach (DataRow row in ds.Tables[0].Rows)
+                            {
+                                taskNames.Add(row["TaskName"].ToString());
+                            }
+                            return taskNames.ToArray();
+                        }
+                        else
+                        {
+                            return new string[0]; 
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                    return null;
+                }
+            }
+        }
+
     }
 }
