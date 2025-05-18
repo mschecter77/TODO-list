@@ -44,11 +44,21 @@
             label4 = new Label();
             comBoxTaskName = new ComboBox();
             tabPage3 = new TabPage();
+            dateTimeUpdate = new DateTimePicker();
+            txtbxTaskDescrUpdate = new TextBox();
+            txtbxTNameUpdate = new TextBox();
+            btnUpdate = new Button();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            dataGridView2 = new DataGridView();
             tabControl1.SuspendLayout();
             tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
+            tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -204,6 +214,14 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(dateTimeUpdate);
+            tabPage3.Controls.Add(txtbxTaskDescrUpdate);
+            tabPage3.Controls.Add(txtbxTNameUpdate);
+            tabPage3.Controls.Add(btnUpdate);
+            tabPage3.Controls.Add(label7);
+            tabPage3.Controls.Add(label6);
+            tabPage3.Controls.Add(label5);
+            tabPage3.Controls.Add(dataGridView2);
             tabPage3.Location = new Point(4, 29);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
@@ -211,6 +229,74 @@
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Update Task";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dateTimeUpdate
+            // 
+            dateTimeUpdate.Location = new Point(527, 268);
+            dateTimeUpdate.Name = "dateTimeUpdate";
+            dateTimeUpdate.Size = new Size(259, 27);
+            dateTimeUpdate.TabIndex = 7;
+            // 
+            // txtbxTaskDescrUpdate
+            // 
+            txtbxTaskDescrUpdate.Location = new Point(176, 268);
+            txtbxTaskDescrUpdate.Name = "txtbxTaskDescrUpdate";
+            txtbxTaskDescrUpdate.Size = new Size(300, 27);
+            txtbxTaskDescrUpdate.TabIndex = 6;
+            // 
+            // txtbxTNameUpdate
+            // 
+            txtbxTNameUpdate.Location = new Point(23, 268);
+            txtbxTNameUpdate.Name = "txtbxTNameUpdate";
+            txtbxTNameUpdate.Size = new Size(129, 27);
+            txtbxTNameUpdate.TabIndex = 5;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.Location = new Point(673, 349);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(94, 34);
+            btnUpdate.TabIndex = 4;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(545, 232);
+            label7.Name = "label7";
+            label7.Size = new Size(72, 20);
+            label7.TabIndex = 3;
+            label7.Text = "Due Date";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(176, 232);
+            label6.Name = "label6";
+            label6.Size = new Size(116, 20);
+            label6.TabIndex = 2;
+            label6.Text = "Task Description";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(19, 232);
+            label5.Name = "label5";
+            label5.Size = new Size(80, 20);
+            label5.TabIndex = 1;
+            label5.Text = "Task Name";
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(21, 31);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.Size = new Size(765, 188);
+            dataGridView2.TabIndex = 0;
+            dataGridView2.CellContentClick += dataGridView2_RowEnter;
             // 
             // Tabs
             // 
@@ -227,6 +313,9 @@
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
         }
 
@@ -248,5 +337,13 @@
         private Button button1;
         private Label label4;
         private ComboBox comBoxTaskName;
+        private DataGridView dataGridView2;
+        private TextBox txtbxTaskDescrUpdate;
+        private TextBox txtbxTNameUpdate;
+        private Button btnUpdate;
+        private Label label7;
+        private Label label6;
+        private Label label5;
+        private DateTimePicker dateTimeUpdate;
     }
 }

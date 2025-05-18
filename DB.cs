@@ -120,6 +120,34 @@ namespace todolist
                 }
             }
         }
+        public void dbupdateTask(int taskID, string taskname, string taskdescription, DateTime duedate)
+        {
+            string sql = "UPDATE TaskList SET TaskName=@taskname,  TaskDescr = @TaskDescr, TaskDueDate = @TaskDueDate WHERE TaskID = @Taskid";
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    Console.WriteLine("Connection successful!");
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Taskid", taskID);
+                        cmd.Parameters.AddWithValue("@TaskName", taskname);
+                        cmd.Parameters.AddWithValue("@TaskDescr", taskdescription);
+                        cmd.Parameters.AddWithValue("@TaskDueDate", duedate);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        Console.WriteLine("Task updated successfully! Rows affected: " + rowsAffected);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+     
 
     }
 }
