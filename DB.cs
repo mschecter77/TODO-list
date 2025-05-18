@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -6,8 +7,10 @@ namespace todolist
 {
     internal class DB
     {
-        string connectionString = "Server=MICHAELLAPPY\\SQLEXPRESS;Database=TaskList;Trusted_Connection=True;";
-
+        private readonly string connectionString =
+             ConfigurationManager
+                 .ConnectionStrings["TaskListDb"]
+                 .ConnectionString;
         public void DBaddtask(string taskname, string taskdescription, DateTime duedate)
         {
             string sql = "INSERT INTO TaskList (TaskName, TaskDescr, TaskDueDate) VALUES (@TaskName, @TaskDescr, @TaskDueDate)";
